@@ -15,6 +15,8 @@ import {
 } from "react-icons/fi";
 import PreviewCarousel from "@/components/PreviewCorousal";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
+import EarlyAccessInsights from "@/components/landing/EarlyAccessInsights";
+import Link from "next/link";
 
 const steps = [
   {
@@ -65,7 +67,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#000000] text-white overflow-x-hidden">
-
       {/* ── HERO ── */}
       <section className="relative min-h-130 sm:h-[58vh] sm:min-h-125 flex items-center justify-center overflow-hidden">
         {/* background image */}
@@ -93,35 +94,40 @@ export default function Home() {
           </h1>
 
           <p className="mt-4 sm:mt-6 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto animate-slide-in-left-delay px-2 sm:px-0">
-            Post your requirement once. Receive multiple responses from
-            verified local professionals and businesses — right in your city.
+            Post your requirement once. Receive multiple responses from verified
+            local professionals and businesses — right in your city.
           </p>
 
           <div className="mt-7 sm:mt-10 flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-left-delay">
-            <button
-              onClick={() => ctaRef.current?.scrollIntoView({ behavior: "smooth" })}
+            <Link
+              href="/about"
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-red-600 hover:bg-red-700 rounded-xl font-semibold text-sm transition-all hover:scale-[1.02]"
             >
               Get Early Access <FiArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => ctaRef.current?.scrollIntoView({ behavior: "smooth" })}
+            </Link>
+            <Link
+              href="/about"
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 border border-gray-700 hover:border-gray-500 rounded-xl font-semibold text-sm text-gray-300 transition-all"
             >
               <FiSearch className="w-4 h-4" /> Join Waitlist
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="how-it-works" className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 sm:py-20 md:py-24 bg-[#050505]">
+      <section
+        id="how-it-works"
+        className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 sm:py-20 md:py-24 bg-[#050505]"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 sm:mb-14 md:mb-16">
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
               Simple Process
             </span>
-            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">How HuntIn<span className="text-red-500">Town</span> Works</h2>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
+              How HuntIn<span className="text-red-500">Town</span> Works
+            </h2>
             <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
               Three steps between you and the right connection.
             </p>
@@ -135,13 +141,19 @@ export default function Home() {
                 )}
                 <div className="relative z-10 bg-[#0d0d0d] border border-gray-800 rounded-2xl p-6 sm:p-7 md:p-8 hover:border-red-500/30 transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-none">{step.num}</span>
+                    <span className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-none">
+                      {step.num}
+                    </span>
                     <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
                       {step.icon}
                     </div>
                   </div>
-                  <h3 className="font-bold text-base sm:text-lg mb-2">{step.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="font-bold text-base sm:text-lg mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -155,8 +167,12 @@ export default function Home() {
           <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
             Live posts
           </span>
-          <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold">See What People Are Posting</h2>
-          <p className="mt-2 text-gray-500 text-sm">Real requirements, real people, real city.</p>
+          <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold">
+            See What People Are Posting
+          </h2>
+          <p className="mt-2 text-gray-500 text-sm">
+            Real requirements, real people, real city.
+          </p>
         </div>
         <PreviewCarousel />
       </section>
@@ -168,7 +184,9 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
               Platform Benefits
             </span>
-            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">Everything You Need</h2>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
+              Everything You Need
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
@@ -181,7 +199,9 @@ export default function Home() {
                   {f.icon}
                 </div>
                 <h3 className="font-semibold text-base mb-2">{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {f.description}
+                </p>
               </div>
             ))}
           </div>
@@ -212,18 +232,25 @@ export default function Home() {
           </div>
 
           <p className="text-gray-400 text-xs sm:text-sm">
-            <span className="text-white font-semibold">100+ early members</span> already inside the community
+            <span className="text-white font-semibold">100+ early members</span>{" "}
+            already inside the community
           </p>
 
           <blockquote className="mt-8 sm:mt-10 text-gray-300 text-base sm:text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-            "A single connection can change a day. A strong network can change a city."
+            "A single connection can change a day. A strong network can change a
+            city.A connected India can change the future. "
           </blockquote>
-          <p className="mt-3 text-gray-600 text-sm">— HuntIn<span className="text-red-500">Town</span> Mission</p>
+          <p className="mt-3 text-gray-600 text-sm">
+            — HuntIn<span className="text-red-500">Town</span> Mission
+          </p>
         </div>
       </section>
 
       {/* ── EARLY ACCESS CTA ── */}
-      <section ref={ctaRef} className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 sm:py-20 md:py-24 bg-[#050505]">
+      <section
+        ref={ctaRef}
+        className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 sm:py-20 md:py-24 bg-[#050505]"
+      >
         <div className="relative max-w-3xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-red-600/15 via-[#0d0d0d] to-[#0a0a0a] border border-gray-800 rounded-2xl sm:rounded-3xl" />
           <div className="absolute -top-16 -right-16 w-72 h-72 bg-red-600/15 rounded-full blur-[80px] pointer-events-none" />
@@ -234,18 +261,21 @@ export default function Home() {
               Join the Waitlist
             </span>
             <h2 className="mt-5 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-              Be Among the First to Use{" "}
-              HuntIn<span className="text-red-500">Town</span>
+              Be Among the First to Use HuntIn
+              <span className="text-red-500">Town</span>
             </h2>
             <p className="mt-3 text-gray-400 text-sm sm:text-base max-w-lg mx-auto">
-              Early members get priority access, founding badges, and a chance to shape the product before anyone else.
+              Early members get priority access, founding badges, and a chance
+              to shape the product before anyone else.
             </p>
 
             <div className="mt-8 sm:mt-10 max-w-xl mx-auto">
-              <EarlyAccessForm />
+              <EarlyAccessForm variant="cta" />
             </div>
 
-            <p className="mt-4 text-gray-600 text-xs">No spam. Only launch updates.</p>
+            <p className="mt-4 text-gray-600 text-xs">
+              No spam. Only launch updates.
+            </p>
           </div>
         </div>
       </section>
@@ -256,11 +286,15 @@ export default function Home() {
           <h3 className="text-2xl font-extrabold">
             HuntIn<span className="text-red-500">Town</span>
           </h3>
-          <p className="text-gray-500 mt-2 text-sm">Never Settle For First Option</p>
-          <p className="text-gray-700 text-xs mt-4">© 2026 HuntIn<span className="text-red-500">Town</span>. All rights reserved.</p>
+          <p className="text-gray-500 mt-2 text-sm">
+            Never Settle For First Option
+          </p>
+          <p className="text-gray-700 text-xs mt-4">
+            © 2026 HuntIn<span className="text-red-500">Town</span>. All rights
+            reserved.
+          </p>
         </div>
       </footer>
-
     </main>
   );
 }

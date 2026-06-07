@@ -89,7 +89,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="mt-5 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed">
-            HuntIn<span className="text-red-500">Town</span> was built on a simple belief — no one should miss an
+            HuntIn<span className="text-red-500">Town </span>   is built on a simple belief — no one should miss an
             opportunity simply because they don&apos;t know the right person.
           </p>
 
@@ -312,13 +312,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ── EARLY ACCESS ── */}
       <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-[#050505]">
-        <div className="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-br from-red-600/20 via-[#111111] to-[#0d0d0d] border border-gray-800 rounded-2xl sm:rounded-3xl" />
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/20 rounded-full blur-[80px] pointer-events-none" />
-
-          <div className="relative z-10 p-7 sm:p-10 md:p-16 text-center">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10">
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400 bg-red-500/10 border border-red-500/20 px-4 py-1.5 rounded-full">
               Join us early
             </span>
@@ -327,18 +324,12 @@ export default function AboutPage() {
               <span className="text-red-500">local opportunity</span>{" "}
               network
             </h2>
-            <p className="mt-4 text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-              Early members get priority access, founding badges, and a chance to
-              shape the platform.
+            <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+              Early members get priority access, founding badges, and directly shape the platform.
             </p>
-            <p className="mt-2 text-gray-500 text-sm font-medium">
-              HuntIn<span className="text-red-500">Town</span> — Connecting People. Creating Opportunities.
-            </p>
-
-            <div className="mt-8 sm:mt-10 max-w-xl mx-auto">
-              <EarlyAccessForm />
-            </div>
           </div>
+
+          <EarlyAccessForm />
         </div>
       </section>
 
