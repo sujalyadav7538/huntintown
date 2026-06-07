@@ -1,0 +1,258 @@
+﻿import Image from "next/image";
+import React from "react";
+import name from "@/../public/name.png";
+import {
+  FiTarget,
+  FiZap,
+  FiShield,
+  FiMapPin,
+  FiCheckCircle,
+} from "react-icons/fi";
+import EarlyAccessForm from "@/components/EarlyAccessForm";
+
+const stats = [
+  { value: "10K+", label: "Early Signups" },
+  { value: "50+", label: "Cities Targeted" },
+  { value: "3x", label: "Faster Connections" },
+  { value: "100%", label: "Free to Post" },
+];
+
+const values = [
+  {
+    icon: <FiTarget className="w-6 h-6 text-red-400" />,
+    title: "Precision Matching",
+    desc: "Smart algorithms surface the most relevant providers for your requirement.",
+  },
+  {
+    icon: <FiShield className="w-6 h-6 text-red-400" />,
+    title: "Verified Network",
+    desc: "Every provider goes through a verification process so you always connect with trust.",
+  },
+  {
+    icon: <FiZap className="w-6 h-6 text-red-400" />,
+    title: "Instant Responses",
+    desc: "Post a requirement and start receiving responses within minutes, not days.",
+  },
+  {
+    icon: <FiMapPin className="w-6 h-6 text-red-400" />,
+    title: "Hyper-Local Focus",
+    desc: "Built for Indian cities — your neighbourhood, your language, your needs.",
+  },
+];
+
+const visionItems = [
+  "Small businesses reach more customers",
+  "Skilled individuals find more work",
+  "Better access to services and deals",
+  "Stronger local communities",
+];
+
+const impactItems = [
+  { title: "Cut out Middlemen", desc: "Direct connections between users and providers" },
+  { title: "Fuel Local Growth", desc: "Help businesses thrive in their own city" },
+  { title: "Equal Access", desc: "Quality services for everyone, everywhere" },
+];
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen bg-[#000000] text-white overflow-x-hidden">
+
+      {/* HERO */}
+      <section className="relative px-6 md:px-12 lg:px-20 pt-24 pb-32 text-center overflow-hidden">
+        {/* ambient glow blobs */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-150 h-150 bg-red-600/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 -right-40 w-100 h-100 bg-red-800/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-red-400 bg-red-500/10 border border-red-500/20 px-4 py-1.5 rounded-full mb-6">
+            Our Story
+          </span>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
+            The platform built for{" "}
+            <span className="text-red-500">real</span>{" "}
+            connections
+          </h1>
+
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+            HuntInTown is a community-driven marketplace where people post
+            requirements and instantly connect with verified professionals,
+            businesses, and skilled individuals — right in their city.
+          </p>
+
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500">
+            <span>Powered by</span>
+            <Image src={name} alt="HuntInTown" className="h-7 w-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="px-6 md:px-12 lg:px-20 py-10 border-y border-gray-800/50">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <p className="text-4xl md:text-5xl font-extrabold text-white">{s.value}</p>
+              <p className="text-sm text-gray-500 mt-1 tracking-wide">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CORE BELIEF */}
+      <section className="px-6 md:px-12 lg:px-20 py-24">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
+              Why we exist
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
+              No one should miss an opportunity because they didn&apos;t know the right person
+            </h2>
+            <p className="mt-5 text-gray-400 text-lg leading-relaxed">
+              Every day, millions of people search for services, freelancers,
+              suppliers, and trusted contacts. The problem isn&apos;t a lack of
+              talent — it&apos;s the lack of the right connection at the right moment.
+            </p>
+            <p className="mt-4 text-gray-400 leading-relaxed">
+              We built HuntInTown to collapse that gap: post once, reach many,
+              and choose the best.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5">
+            <div className="bg-red-500/8 border border-red-500/15 rounded-2xl p-6">
+              <h3 className="text-red-400 font-semibold text-lg mb-2">The Problem</h3>
+              <p className="text-gray-300 leading-relaxed text-sm">
+                People rely on word-of-mouth and limited contacts, leading to
+                poor decisions, overpriced services, and missed opportunities.
+              </p>
+            </div>
+            <div className="bg-[#0f1a0f] border border-green-500/15 rounded-2xl p-6">
+              <h3 className="text-green-400 font-semibold text-lg mb-2">Our Solution</h3>
+              <p className="text-gray-300 leading-relaxed text-sm">
+                A single platform where your requirement is heard by multiple
+                verified providers — so you always have options, not just luck.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="px-6 md:px-12 lg:px-20 py-20 bg-[#050505]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
+              What drives us
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Built around you</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((v) => (
+              <div
+                key={v.title}
+                className="group bg-[#0d0d0d] border border-gray-800 hover:border-red-500/40 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(239,68,68,0.08)]"
+              >
+                <div className="w-11 h-11 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+                  {v.icon}
+                </div>
+                <h3 className="font-semibold text-base mb-2">{v.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VISION */}
+      <section className="px-6 md:px-12 lg:px-20 py-24">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-start">
+          <div className="sticky top-24">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
+              The bigger picture
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
+              Our vision for India
+            </h2>
+            <p className="mt-5 text-gray-400 leading-relaxed">
+              We envision an India where opportunities are not limited by
+              geography or personal network. A place where small businesses
+              grow, skilled individuals find consistent work, and communities
+              collaborate freely.
+            </p>
+            <p className="mt-5 text-gray-500 italic border-l-2 border-red-500/50 pl-4">
+              &quot;A single connection can change a day. A strong network can change a city.&quot;
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {visionItems.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-4 bg-[#0d0d0d] border border-gray-800 rounded-xl px-6 py-5"
+              >
+                <FiCheckCircle className="w-5 h-5 text-red-500 shrink-0" />
+                <span className="text-gray-300">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* IMPACT */}
+      <section className="px-6 md:px-12 lg:px-20 py-20 bg-[#050505]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
+              Our impact
+            </span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold">The change we want to create</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {impactItems.map((item, i) => (
+              <div
+                key={i}
+                className="relative bg-[#0d0d0d] border border-gray-800 rounded-2xl p-8 overflow-hidden hover:border-gray-700 transition"
+              >
+                <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-red-500 to-transparent rounded-l-2xl" />
+                <h3 className="font-bold text-lg mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-6 md:px-12 lg:px-20 py-28">
+        <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden">
+          <div className="absolute inset-0 bg-linear-to-br from-red-600/20 via-[#111111] to-[#0d0d0d] border border-gray-800 rounded-3xl" />
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/20 rounded-full blur-[80px] pointer-events-none" />
+
+          <div className="relative z-10 p-12 md:p-16 text-center">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400 bg-red-500/10 border border-red-500/20 px-4 py-1.5 rounded-full">
+              Join us early
+            </span>
+            <h2 className="mt-6 text-4xl md:text-5xl font-extrabold leading-tight">
+              Be part of India&apos;s{" "}
+              <span className="text-red-500">local opportunity</span>{" "}
+              network
+            </h2>
+            <p className="mt-4 text-gray-400 text-lg max-w-xl mx-auto">
+              Early members get priority access, founding badges, and a chance to
+              shape the platform.
+            </p>
+
+            <div className="mt-10 max-w-xl mx-auto">
+              <EarlyAccessForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}

@@ -1,17 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import logo from "../../public/logo.jpeg";
 import name from "../../public/name.png";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
-import Button from "./Button";
-import {useRouter} from "next/navigation"
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useRouter();
 
   return (
     <nav className=" bg-[#0d0d0d]  font-semibold fixed w-full z-50 shadow-lg">
@@ -27,28 +23,13 @@ const Navbar = () => {
           <Link href="/" className="hover:text-red-500 transition-colors">
             Home
           </Link>
-          <Link
-            href="/"
-            className="hover:text-red-500 transition-colors"
-          >
+          <Link href="/#how-it-works" className="hover:text-red-500 transition-colors">
             How it works
           </Link>
-          {/* <Link
-            href="/"
-            className="hover:text-red-500 transition-colors"
-          >
-            Explore
-          </Link> */}
-          <Link href="/" className="hover:text-red-500 transition-colors">
+          <Link href="/about" className="hover:text-red-500 transition-colors">
             About us
           </Link>
         </section>
-
-        {/* Desktop Action Buttons */}
-        {/* <section className="hidden md:flex flex-row items-center gap-4">
-          <Button text="Login" variant="outline" onClick={() => {navigate.push("/")}} />
-          <Button text="Join Community" variant="contained" />
-        </section> */}
 
         {/* Mobile Hamburger */}
         <button
@@ -71,23 +52,13 @@ const Navbar = () => {
             >
               Home
             </Link>
-
             <Link
-              href="/how-it-works"
+              href="/#how-it-works"
               onClick={() => setMenuOpen(false)}
               className="hover:text-red-500 transition-colors cursor-pointer"
             >
               How it works
             </Link>
-
-            {/* <Link
-              href="/explore"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-red-500 transition-colors cursor-pointer"
-            >
-              Explore
-            </Link> */}
-
             <Link
               href="/about"
               onClick={() => setMenuOpen(false)}
@@ -96,18 +67,6 @@ const Navbar = () => {
               About us
             </Link>
           </div>
-          {/* <div className="flex flex-col gap-3 pt-2">
-            <Button
-              text="Login"
-              variant="outline"
-              onClick={() => setMenuOpen(false)}
-            />
-            <Button
-              text="Join Community"
-              variant="contained"
-              onClick={() => setMenuOpen(false)}
-            />
-          </div> */}
         </div>
       )}
     </nav>
