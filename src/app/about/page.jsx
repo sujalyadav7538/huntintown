@@ -7,6 +7,9 @@ import {
   FiShield,
   FiMapPin,
   FiCheckCircle,
+  FiUsers,
+  FiTrendingUp,
+  FiBarChart2,
 } from "react-icons/fi";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
 
@@ -21,7 +24,7 @@ const values = [
   {
     icon: <FiTarget className="w-6 h-6 text-red-400" />,
     title: "Precision Matching",
-    desc: "Smart algorithms surface the most relevant providers for your requirement.",
+    desc: "Smart algorithms surface the most relevant providers for your specific requirement.",
   },
   {
     icon: <FiShield className="w-6 h-6 text-red-400" />,
@@ -41,16 +44,28 @@ const values = [
 ];
 
 const visionItems = [
-  "Small businesses reach more customers",
-  "Skilled individuals find more work",
-  "Better access to services and deals",
-  "Stronger local communities",
+  "Small businesses can reach more customers.",
+  "Skilled individuals can find more work.",
+  "People can access better services and better deals.",
+  "Communities can grow stronger through collaboration.",
+  "Trust and recommendations become more valuable than advertising.",
 ];
 
-const impactItems = [
-  { title: "Cut out Middlemen", desc: "Direct connections between users and providers" },
-  { title: "Fuel Local Growth", desc: "Help businesses thrive in their own city" },
-  { title: "Equal Access", desc: "Quality services for everyone, everywhere" },
+const changeItems = [
+  "Reduce dependency on middlemen.",
+  "Help local businesses grow.",
+  "Create side-income opportunities.",
+  "Improve access to quality services.",
+  "Build stronger local economies.",
+  "Enable communities to help one another more effectively.",
+];
+
+const whyItems = [
+  "Compare different options.",
+  "Understand market pricing.",
+  "Evaluate expertise.",
+  "Receive better recommendations.",
+  "Choose the solution that best fits their needs.",
 ];
 
 export default function AboutPage() {
@@ -58,7 +73,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[#000000] text-white overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-20 md:pb-32 text-center overflow-hidden">
+      <section className="relative px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-16 md:pb-24 text-center overflow-hidden">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-150 h-150 bg-red-600/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-20 -right-40 w-100 h-100 bg-red-800/10 rounded-full blur-[100px] pointer-events-none" />
 
@@ -68,15 +83,14 @@ export default function AboutPage() {
           </span>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
-            The platform built for{" "}
-            <span className="text-red-500">real</span>{" "}
-            connections
+            Connecting People.{" "}
+            <span className="text-red-500">Creating</span>{" "}
+            Opportunities.
           </h1>
 
           <p className="mt-5 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed">
-            HuntInTown is a community-driven marketplace where people post
-            requirements and instantly connect with verified professionals,
-            businesses, and skilled individuals — right in their city.
+            HuntIn<span className="text-red-500">Town</span> was built on a simple belief — no one should miss an
+            opportunity simply because they don&apos;t know the right person.
           </p>
 
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
@@ -98,24 +112,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CORE BELIEF ── */}
+      {/* ── ABOUT / CORE BELIEF ── */}
       <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
-              Why we exist
+              About HuntIn<span className="text-red-400">Town</span>
             </span>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
               No one should miss an opportunity because they didn&apos;t know the right person
             </h2>
             <p className="mt-4 text-gray-400 text-base sm:text-lg leading-relaxed">
-              Every day, millions of people search for services, freelancers,
-              suppliers, and trusted contacts. The problem isn&apos;t a lack of
-              talent — it&apos;s the lack of the right connection at the right moment.
+              Every day, people need services, recommendations, skilled professionals,
+              business connections, workers, freelancers, suppliers, and trusted contacts.
+              Most of the time, the challenge isn&apos;t finding a solution — it&apos;s finding
+              the <span className="text-white font-medium">right connection</span>.
             </p>
             <p className="mt-3 text-gray-400 leading-relaxed text-sm sm:text-base">
-              We built HuntInTown to collapse that gap: post once, reach many,
-              and choose the best.
+              HuntIn<span className="text-red-500">Town</span> bridges that gap. We are building a community-driven
+              platform where people can post their requirements and connect with genuine
+              individuals, businesses, and professionals who can help.
             </p>
           </div>
 
@@ -123,23 +139,81 @@ export default function AboutPage() {
             <div className="bg-red-500/8 border border-red-500/15 rounded-2xl p-5 sm:p-6">
               <h3 className="text-red-400 font-semibold text-base sm:text-lg mb-2">The Problem</h3>
               <p className="text-gray-300 leading-relaxed text-sm">
-                People rely on word-of-mouth and limited contacts, leading to
-                poor decisions, overpriced services, and missed opportunities.
+                People often rely on a limited circle of contacts — ending up
+                choosing the first person they find, paying more than necessary,
+                or receiving poor-quality work.
               </p>
             </div>
             <div className="bg-[#0f1a0f] border border-green-500/15 rounded-2xl p-5 sm:p-6">
               <h3 className="text-green-400 font-semibold text-base sm:text-lg mb-2">Our Solution</h3>
               <p className="text-gray-300 leading-relaxed text-sm">
-                A single platform where your requirement is heard by multiple
-                verified providers — so you always have options, not just luck.
+                Post your requirement once and receive responses from multiple verified
+                professionals and businesses — whether it&apos;s a small personal need
+                or a large business opportunity.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── VALUES ── */}
+      {/* ── WHY HUNTINTOWN ── */}
       <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-20 bg-[#050505]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 md:mb-14">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
+              Why HuntIn<span className="text-red-400">Town</span>?
+            </span>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
+              Finding a service is easy.{" "}
+              <span className="text-red-500">Finding the right one</span> is hard.
+            </h2>
+            <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+              Many people need work done in domains they know very little about — website
+              development, construction, digital marketing, legal services, manufacturing,
+              design, repairs, logistics. Most don&apos;t know who to trust or how to evaluate
+              quality. HuntIn<span className="text-red-500">Town</span> changes that.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            {/* left — explanation */}
+            <div className="bg-[#0d0d0d] border border-gray-800 rounded-2xl p-6 sm:p-8">
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Instead of relying on a single contact or random recommendations, users
+                can post their requirement and receive responses from multiple
+                professionals, businesses, and experienced individuals in that domain.
+              </p>
+              <p className="mt-4 text-gray-400 text-sm sm:text-base leading-relaxed">
+                Even if you know nothing about a particular field, HuntIn<span className="text-red-500">Town</span> helps
+                you connect with people who do.
+              </p>
+              <p className="mt-5 text-gray-500 italic border-l-2 border-red-500/50 pl-4 text-sm">
+                &quot;Because everyone deserves access to the right expertise, the right
+                connections, and the best possible solution.&quot;
+              </p>
+            </div>
+
+            {/* right — benefits list */}
+            <div>
+              <p className="text-sm sm:text-base text-gray-400 mb-4">This allows people to:</p>
+              <div className="space-y-3">
+                {whyItems.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 bg-[#0d0d0d] border border-gray-800 rounded-xl px-4 sm:px-5 py-3 sm:py-4"
+                  >
+                    <FiCheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VALUES ── */}
+      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 md:mb-14">
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
@@ -166,34 +240,34 @@ export default function AboutPage() {
       </section>
 
       {/* ── VISION ── */}
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-24">
+      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-24 bg-[#050505]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-start">
-          {/* left — only sticky on desktop */}
           <div className="md:sticky md:top-24">
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
-              The bigger picture
+              Our Vision
             </span>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-              Our vision for India
+              A connected India where every opportunity is within reach
             </h2>
             <p className="mt-4 text-gray-400 leading-relaxed text-sm sm:text-base">
-              We envision an India where opportunities are not limited by
-              geography or personal network. A place where small businesses
-              grow, skilled individuals find consistent work, and communities
-              collaborate freely.
+              We envision an India where opportunities are not limited by contacts,
+              geography, or social circles. Our mission is to create India&apos;s most
+              trusted network of opportunities, services, and connections — empowering
+              people to solve problems, discover possibilities, and grow together.
             </p>
-            <p className="mt-4 text-gray-500 italic border-l-2 border-red-500/50 pl-4 text-sm sm:text-base">
-              &quot;A single connection can change a day. A strong network can change a city.&quot;
+            <p className="mt-5 text-gray-500 italic border-l-2 border-red-500/50 pl-4 text-sm sm:text-base">
+              &quot;Because when people connect, opportunities multiply.&quot;
             </p>
           </div>
 
           <div className="space-y-3 mt-2 md:mt-0">
+            <p className="text-xs sm:text-sm text-gray-500 uppercase tracking-widest mb-4">A place where:</p>
             {visionItems.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 sm:gap-4 bg-[#0d0d0d] border border-gray-800 rounded-xl px-4 sm:px-6 py-4 sm:py-5"
+                className="flex items-start gap-3 sm:gap-4 bg-[#0d0d0d] border border-gray-800 rounded-xl px-4 sm:px-6 py-4 sm:py-5"
               >
-                <FiCheckCircle className="w-5 h-5 text-red-500 shrink-0" />
+                <FiCheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm sm:text-base">{item}</span>
               </div>
             ))}
@@ -201,33 +275,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── IMPACT ── */}
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-20 bg-[#050505]">
+      {/* ── THE CHANGE WE WANT TO CREATE ── */}
+      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-14 md:py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10 md:mb-14">
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
-              Our impact
+              Our Impact
             </span>
-            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">The change we want to create</h2>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
+              The change we want to create
+            </h2>
+            <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+              India is full of talent, skills, businesses, and opportunities. Yet millions
+              still rely on a limited circle of contacts. HuntIn<span className="text-red-500">Town</span> aims to change that.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-            {impactItems.map((item, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+            {changeItems.map((item, i) => (
               <div
                 key={i}
-                className="relative bg-[#0d0d0d] border border-gray-800 rounded-2xl p-6 sm:p-8 overflow-hidden hover:border-gray-700 transition"
+                className="relative bg-[#0d0d0d] border border-gray-800 rounded-2xl p-5 sm:p-7 overflow-hidden hover:border-gray-700 transition group"
               >
                 <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-red-500 to-transparent rounded-l-2xl" />
-                <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed pl-1">{item}</p>
               </div>
             ))}
+          </div>
+
+          {/* closing tagline */}
+          <div className="mt-12 sm:mt-16 text-center space-y-2">
+            <p className="text-gray-400 text-sm sm:text-base">A single connection can change a person&apos;s day.</p>
+            <p className="text-gray-300 text-base sm:text-lg font-medium">A strong network can change a city.</p>
+            <p className="text-white text-lg sm:text-xl font-bold">A connected India can change the future.</p>
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-28">
+      <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-[#050505]">
         <div className="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-red-600/20 via-[#111111] to-[#0d0d0d] border border-gray-800 rounded-2xl sm:rounded-3xl" />
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/20 rounded-full blur-[80px] pointer-events-none" />
@@ -244,6 +330,9 @@ export default function AboutPage() {
             <p className="mt-4 text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
               Early members get priority access, founding badges, and a chance to
               shape the platform.
+            </p>
+            <p className="mt-2 text-gray-500 text-sm font-medium">
+              HuntIn<span className="text-red-500">Town</span> — Connecting People. Creating Opportunities.
             </p>
 
             <div className="mt-8 sm:mt-10 max-w-xl mx-auto">

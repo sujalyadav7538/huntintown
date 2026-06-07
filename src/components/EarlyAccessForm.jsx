@@ -38,7 +38,7 @@ export default function EarlyAccessForm({ className = "" }) {
         </div>
         <h3 className="text-lg font-bold text-green-400">You&apos;re on the list!</h3>
         <p className="text-gray-400 mt-1 text-sm">
-          We&apos;ll notify you the moment HuntinTown launches.
+          We&apos;ll notify you the moment Huntin<span className="text-red-500">Town</span> launches.
         </p>
       </div>
     );

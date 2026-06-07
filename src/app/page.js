@@ -121,7 +121,7 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-red-400">
               Simple Process
             </span>
-            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">How HuntinTown Works</h2>
+            <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">How HuntIn<span className="text-red-500">Town</span> Works</h2>
             <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
               Three steps between you and the right connection.
             </p>
@@ -218,7 +218,7 @@ export default function Home() {
           <blockquote className="mt-8 sm:mt-10 text-gray-300 text-base sm:text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             "A single connection can change a day. A strong network can change a city."
           </blockquote>
-          <p className="mt-3 text-gray-600 text-sm">— HuntinTown Mission</p>
+          <p className="mt-3 text-gray-600 text-sm">— HuntIn<span className="text-red-500">Town</span> Mission</p>
         </div>
       </section>
 
@@ -235,7 +235,7 @@ export default function Home() {
             </span>
             <h2 className="mt-5 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
               Be Among the First to Use{" "}
-              <span className="text-red-500">HuntinTown</span>
+              HuntIn<span className="text-red-500">Town</span>
             </h2>
             <p className="mt-3 text-gray-400 text-sm sm:text-base max-w-lg mx-auto">
               Early members get priority access, founding badges, and a chance to shape the product before anyone else.
@@ -254,10 +254,10 @@ export default function Home() {
       <footer className="border-t border-gray-800/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 text-center">
           <h3 className="text-2xl font-extrabold">
-            Huntin<span className="text-red-500">Town</span>
+            HuntIn<span className="text-red-500">Town</span>
           </h3>
           <p className="text-gray-500 mt-2 text-sm">Never Settle For First Option</p>
-          <p className="text-gray-700 text-xs mt-4">© 2026 HuntinTown. All rights reserved.</p>
+          <p className="text-gray-700 text-xs mt-4">© 2026 HuntIn<span className="text-red-500">Town</span>. All rights reserved.</p>
         </div>
       </footer>
 
