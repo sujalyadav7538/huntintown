@@ -21,19 +21,19 @@ const steps = [
   {
     num: "01",
     title: "Post Your Requirement",
-    desc: "Describe what you need in seconds — service, skill, or supply. No forms, no hassle.",
+    desc: "Describe what you need in seconds, whether it is a service, a specialist, or a supplier. No friction, no endless forms.",
     icon: <FiBriefcase className="w-6 h-6 text-red-400" />,
   },
   {
     num: "02",
     title: "Get Multiple Responses",
-    desc: "Verified professionals and businesses in your city see your post and reach out.",
+    desc: "Verified professionals and businesses in your city see your post and respond directly.",
     icon: <FiMessageSquare className="w-6 h-6 text-red-400" />,
   },
   {
     num: "03",
     title: "Choose the Best",
-    desc: "Compare offers, check profiles, and pick the right fit. No pressure, no middlemen.",
+    desc: "Compare offers, review profiles, and choose the best fit without pressure or middlemen.",
     icon: <FiStar className="w-6 h-6 text-red-400" />,
   },
 ];
@@ -41,7 +41,7 @@ const steps = [
 const features = [
   {
     title: "Post Requirement",
-    description: "Tell what you need in seconds and reach multiple people.",
+    description: "Share what you need in seconds and reach the right people fast.",
     icon: <FiBriefcase className="w-6 h-6 text-red-500" />,
   },
   {
@@ -88,13 +88,13 @@ export default function Home() {
           </span>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight animate-slide-in-left">
-            Never Settle <br />
-            For First <span className="text-red-500">Option.</span>
+            Don&apos;t Settle <br />
+            For the First <span className="text-red-500">Option.</span>
           </h1>
 
           <p className="mt-4 sm:mt-6 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto animate-slide-in-left-delay px-2 sm:px-0">
-            Post your requirement once. Receive multiple responses from verified
-            local professionals and businesses — right in your city.
+            Post your requirement once and hear from verified local professionals
+            and businesses in your city.
           </p>
 
           <div className="mt-7 sm:mt-10 flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-left-delay">
@@ -170,7 +170,7 @@ export default function Home() {
             See What People Are Posting
           </h2>
           <p className="mt-2 text-gray-500 text-sm">
-            Real requirements, real people, real city.
+            Real requirements, real people, real cities.
           </p>
         </div>
         <PreviewCarousel />
@@ -237,10 +237,10 @@ export default function Home() {
 
           <blockquote className="mt-8 sm:mt-10 text-gray-300 text-base sm:text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             "A single connection can change a day. A strong network can change a
-            city.A connected India can change the future. "
+            city. A connected India can change the future."
           </blockquote>
           <p className="mt-3 text-gray-600 text-sm">
-            — HuntIn<span className="text-red-500">Town</span> Mission
+            — HuntIn<span className="text-red-500">Town</span> mission
           </p>
         </div>
       </section>
@@ -264,8 +264,8 @@ export default function Home() {
               <span className="text-red-500">Town</span>
             </h2>
             <p className="mt-3 text-gray-400 text-sm sm:text-base max-w-lg mx-auto">
-              Early members get priority access, founding badges, and a chance
-              to shape the product before anyone else.
+              Early members get priority access, founding badges, and a real say
+              in how the product takes shape.
             </p>
 
             <div className="mt-8 sm:mt-10 max-w-2xl mx-auto">
@@ -282,7 +282,7 @@ export default function Home() {
             HuntIn<span className="text-red-500">Town</span>
           </h3>
           <p className="text-gray-500 mt-2 text-sm">
-            Never Settle For First Option
+            Don&apos;t settle for the first option.
           </p>
           <p className="text-gray-700 text-xs mt-4">
             © 2026 HuntIn<span className="text-red-500">Town</span>. All rights

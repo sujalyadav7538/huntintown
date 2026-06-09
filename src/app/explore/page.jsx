@@ -140,7 +140,7 @@ export default function ExplorePage() {
 
             <input
               type="text"
-              placeholder="Search requirements, people, services..."
+              placeholder="Search requirements, people, or services..."
               className="
           w-full
           bg-[#1a1a1a]

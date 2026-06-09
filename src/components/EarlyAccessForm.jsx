@@ -20,10 +20,10 @@ const intentOptions = [
 ];
 
 const painPoints = [
-  { label: "Can't find trusted people", icon: "🔍" },
-  { label: "Too expensive services", icon: "💸" },
+  { label: "Hard to find trusted people", icon: "🔍" },
+  { label: "Services feel overpriced", icon: "💸" },
   { label: "No reliable platform", icon: "📱" },
-  { label: "Low quality providers", icon: "⚠️" },
+  { label: "Poor-quality providers", icon: "⚠️" },
   { label: "No pricing transparency", icon: "🤷" },
 ];
 
@@ -134,7 +134,7 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
           <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
             We&apos;ll notify you the moment HuntIn
             <span className="text-red-500">Town</span> launches. Your feedback
-            directly shapes what we build.
+            will help shape what we build.
           </p>
 
           {/* recap chips */}
@@ -235,7 +235,7 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
                 What will you use HuntIn<span className="text-red-500">Town</span> for?
               </h3>
               <p className="text-xs text-gray-500 mb-5">
-                Select all that apply — helps us prioritise the right categories.
+                Select all that apply. This helps us prioritise the right categories.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {intentOptions.map(({ label, emoji }) => {
@@ -272,7 +272,7 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
                 What&apos;s your biggest challenge?
               </h3>
               <p className="text-xs text-gray-500 mb-5">
-                Be honest — this helps us solve real problems first.
+                Be honest. This helps us solve real problems first.
               </p>
               <div className="flex flex-col gap-2.5">
                 {painPoints.map(({ label, icon }) => {
@@ -314,10 +314,10 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
           {step === 2 && (
             <div>
               <h3 className="text-base sm:text-lg font-bold text-white mb-1">
-                What best describes you?
+                Which option describes you best?
               </h3>
               <p className="text-xs text-gray-500 mb-5">
-                Helps us personalise your experience on the platform.
+                This helps us personalise your experience on the platform.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                 {occupationOptions.map(({ label, emoji }) => {
@@ -354,7 +354,7 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
                 Last step — secure your spot
               </h3>
               <p className="text-xs text-gray-500 mb-5">
-                No spam, ever. We only send launch updates.
+                No spam, ever. We only send launch updates and early access details.
               </p>
 
               {/* summary chips */}

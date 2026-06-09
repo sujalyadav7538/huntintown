@@ -24,7 +24,7 @@ export default function LoginPage() {
           </h1>
 
           <p className="text-gray-400 mt-2 text-center">
-            Login to continue exploring opportunities and connections.
+            Sign in to continue exploring opportunities and connections.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export default function LoginPage() {
                 cursor-pointer
               "
             >
-              Login
+              Sign in
             </button>
           </form>
 

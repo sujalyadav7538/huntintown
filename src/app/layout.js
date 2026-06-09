@@ -19,10 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "HuntinTown",
+  title: "HuntInTown",
   icon: "/logo.jpeg",
   description:
-    "Discover and share the best local spots with HuntinTown - your ultimate guide to hidden gems in your city. Explore, review, and connect with fellow adventurers to uncover the coolest places around you.",
+    "HuntInTown helps people post a requirement once and hear from verified local professionals, businesses, and service providers.",
 };
 
 export default function RootLayout({ children }) {

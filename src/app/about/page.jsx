@@ -89,8 +89,8 @@ export default function AboutPage() {
           </h1>
 
           <p className="mt-5 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed">
-            HuntIn<span className="text-red-500">Town </span>   is built on a simple belief — no one should miss an
-            opportunity simply because they don&apos;t know the right person.
+            HuntIn<span className="text-red-500">Town</span> is built on a simple belief: no one should miss an
+            opportunity just because they don&apos;t know the right person.
           </p>
 
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
@@ -120,7 +120,7 @@ export default function AboutPage() {
               About HuntIn<span className="text-red-400">Town</span>
             </span>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-              No one should miss an opportunity because they didn&apos;t know the right person
+              No one should miss an opportunity because they don&apos;t know the right person
             </h2>
             <p className="mt-4 text-gray-400 text-base sm:text-lg leading-relaxed">
               Every day, people need services, recommendations, skilled professionals,
@@ -147,8 +147,8 @@ export default function AboutPage() {
             <div className="bg-[#0f1a0f] border border-green-500/15 rounded-2xl p-5 sm:p-6">
               <h3 className="text-green-400 font-semibold text-base sm:text-lg mb-2">Our Solution</h3>
               <p className="text-gray-300 leading-relaxed text-sm">
-                Post your requirement once and receive responses from multiple verified
-                professionals and businesses — whether it&apos;s a small personal need
+                Post your requirement once and hear from multiple verified
+                professionals and businesses, whether it&apos;s a small personal need
                 or a large business opportunity.
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
             </span>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
               Finding a service is easy.{" "}
-              <span className="text-red-500">Finding the right one</span> is hard.
+              <span className="text-red-500">Finding the right one</span> is harder.
             </h2>
             <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
               Many people need work done in domains they know very little about — website
@@ -179,7 +179,7 @@ export default function AboutPage() {
             {/* left — explanation */}
             <div className="bg-[#0d0d0d] border border-gray-800 rounded-2xl p-6 sm:p-8">
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                Instead of relying on a single contact or random recommendations, users
+                Instead of relying on a single contact or random recommendation, users
                 can post their requirement and receive responses from multiple
                 professionals, businesses, and experienced individuals in that domain.
               </p>
@@ -251,7 +251,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 text-gray-400 leading-relaxed text-sm sm:text-base">
               We envision an India where opportunities are not limited by contacts,
-              geography, or social circles. Our mission is to create India&apos;s most
+              geography, or social circles. Our mission is to build India&apos;s most
               trusted network of opportunities, services, and connections — empowering
               people to solve problems, discover possibilities, and grow together.
             </p>
@@ -325,7 +325,7 @@ export default function AboutPage() {
               network
             </h2>
             <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-              Early members get priority access, founding badges, and directly shape the platform.
+              Early members get priority access, founding badges, and a direct voice in shaping the platform.
             </p>
           </div>
 

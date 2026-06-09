@@ -59,7 +59,7 @@ export default function PostPage() {
           </h1>
 
           <p className="text-gray-400 mt-2">
-            Tell the community what you're looking for.
+            Tell the community exactly what you&apos;re looking for.
           </p>
         </div>
 
