@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(req) {
-  const { email, intent, painPoints } = await req.json();
+  const { email, intent, painPoints, occupation } = await req.json();
 
   if (!email) {
     return Response.json({ error: "Email required" }, { status: 400 });
@@ -11,6 +11,7 @@ export async function POST(req) {
     email,
     ...(Array.isArray(intent) && intent.length > 0 && { intent }),
     ...(Array.isArray(painPoints) && painPoints.length > 0 && { pain_points: painPoints }),
+    ...(occupation && { occupation }),
   };
 
   const { data, error } = await supabase

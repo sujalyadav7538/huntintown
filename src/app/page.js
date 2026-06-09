@@ -15,7 +15,6 @@ import {
 } from "react-icons/fi";
 import PreviewCarousel from "@/components/PreviewCorousal";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
-import EarlyAccessInsights from "@/components/landing/EarlyAccessInsights";
 import Link from "next/link";
 
 const steps = [
@@ -99,18 +98,18 @@ export default function Home() {
           </p>
 
           <div className="mt-7 sm:mt-10 flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-in-left-delay">
-            <Link
-              href="/about"
+            <button
+              onClick={() => ctaRef.current?.scrollIntoView({ behavior: "smooth" })}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-red-600 hover:bg-red-700 rounded-xl font-semibold text-sm transition-all hover:scale-[1.02]"
             >
               Get Early Access <FiArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/about"
+            </button>
+            <button
+              onClick={() => ctaRef.current?.scrollIntoView({ behavior: "smooth" })}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 border border-gray-700 hover:border-gray-500 rounded-xl font-semibold text-sm text-gray-300 transition-all"
             >
               <FiSearch className="w-4 h-4" /> Join Waitlist
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -126,7 +125,7 @@ export default function Home() {
               Simple Process
             </span>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold">
-              How HuntIn<span className="text-red-500">Town</span> Works
+              How Huntin<span className="text-red-500">Town</span> Works
             </h2>
             <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
               Three steps between you and the right connection.
@@ -269,13 +268,9 @@ export default function Home() {
               to shape the product before anyone else.
             </p>
 
-            <div className="mt-8 sm:mt-10 max-w-xl mx-auto">
-              <EarlyAccessForm variant="cta" />
+            <div className="mt-8 sm:mt-10 max-w-2xl mx-auto">
+              <EarlyAccessForm />
             </div>
-
-            <p className="mt-4 text-gray-600 text-xs">
-              No spam. Only launch updates.
-            </p>
           </div>
         </div>
       </section>
