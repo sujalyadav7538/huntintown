@@ -155,7 +155,7 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
           </div>
 
           <p className="mt-7 text-xs text-gray-700">
-            No spam, ever &nbsp;·&nbsp; HuntIn
+             HuntIn
             <span className="text-red-500">Town</span> Early Access
           </p>
         </div>
@@ -180,9 +180,9 @@ export default function EarlyAccessForm({ className = "", variant = "form" }) {
 
   /* ── FULL STEPPER FORM ── */
   return (
-    <div
-      className={`bg-[#0d0d0d] border border-gray-800 rounded-2xl overflow-hidden ${className}`}
-    >
+   <div
+  className={`animated-form-border relative rounded-2xl overflow-hidden ${className}`}
+>
       {/* ── PROGRESS HEADER ── */}
       <div className="px-6 sm:px-8 pt-6 pb-5 border-b border-gray-800/60">
         <div className="flex items-center justify-between mb-4">
