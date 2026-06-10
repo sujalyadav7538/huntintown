@@ -69,13 +69,15 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="relative min-h-130 sm:h-[58vh] sm:min-h-125 flex items-center justify-center overflow-hidden">
         {/* background image */}
-        <Image
-          src={bg1}
-          alt="background"
-          fill
-          className="object-cover opacity-25"
-          priority
-        />
+         <Link href="/">
+          <Image
+            src={bg1}
+            alt="background"
+            fill
+            className="object-cover opacity-25"
+            priority
+          />
+        </Link>
         {/* bottom fade */}
         <div className="absolute inset-x-0 bottom-0 h-40 sm:h-48 bg-linear-to-t from-black to-transparent z-10" />
         {/* center glow */}
