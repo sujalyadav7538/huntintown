@@ -20,7 +20,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "HuntInTown",
-  icon: "/logo.jpeg",
+  icons: {
+    icon: "/logo.jpeg",
+  },
   description:
     "HuntInTown helps people post a requirement once and hear from verified local professionals, businesses, and service providers.",
 };
