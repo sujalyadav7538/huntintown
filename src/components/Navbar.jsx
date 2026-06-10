@@ -27,7 +27,7 @@ const Navbar = () => {
             How it works
           </Link>
           <Link href="/about" className="hover:text-red-500 transition-colors">
-            About
+            About Us
           </Link>
         </section>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
               className="hover:text-red-500 transition-colors"
             >
-              About
+              About Us
             </Link>
           </div>
         </div>
