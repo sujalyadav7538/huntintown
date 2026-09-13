@@ -7,11 +7,23 @@ import {
   FiShield,
   FiMapPin,
   FiCheckCircle,
-  FiUsers,
-  FiTrendingUp,
-  FiBarChart2,
 } from "react-icons/fi";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
+
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn how HuntInTown connects people with verified local professionals and businesses through precision matching, a trusted network, and free requirement posting.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About HuntInTown",
+    description:
+      "Learn how HuntInTown connects people with verified local professionals and businesses through precision matching and a trusted network.",
+    url: "/about",
+  },
+};
 
 const stats = [
   { value: "10K+", label: "Early Signups" },
