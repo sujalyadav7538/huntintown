@@ -257,6 +257,7 @@ export default function HuntOpportunities() {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#101010] pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
+          {/* Heading */}
           <div data-reveal className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400">
               A Different Way to Find Opportunities
@@ -274,37 +275,76 @@ export default function HuntOpportunities() {
             </p>
           </div>
 
+          {/* Timeline */}
           <div className="relative mt-12 sm:mt-14">
-            <div className="hidden md:block absolute top-5 left-[12%] right-[12%] h-px bg-gray-700" />
+            {/* Desktop Timeline */}
+            <div className="hidden md:block">
+              <div className="relative grid grid-cols-4">
+                {/* Horizontal line */}
+                <div className="absolute top-5 left-[12.5%] right-[12.5%] h-px bg-gray-700" />
 
-            <div className="md:hidden absolute left-5 top-5 bottom-5 w-px bg-gray-700" />
+                {timeline.map((item, index) => (
+                  <div
+                    key={item.number}
+                    data-reveal
+                    data-reveal-delay={(index % 4) + 1}
+                    className="relative text-center"
+                  >
+                    {/* Icon */}
+                    <div className="relative z-20 mx-auto w-10 h-10 rounded-full bg-[#0b0b0b] border border-red-500/70 flex items-center justify-center text-red-400">
+                      <span className="text-sm">{item.icon}</span>
+                    </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
-              {timeline.map((item, index) => (
-                <div
-                  key={item.number}
-                  data-reveal
-                  data-reveal-delay={(index % 4) + 1}
-                  className="relative flex md:block items-start gap-5"
-                >
-                  <div className="relative z-10 shrink-0 w-10 h-10 rounded-full bg-[#0b0b0b] border border-red-500/70 flex items-center justify-center text-red-400">
-                    <span className="text-sm">{item.icon}</span>
+                    {/* Content */}
+                    <div className="mt-5 px-4">
+                      <h3 className="text-base sm:text-lg font-bold text-white">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-gray-300 text-sm leading-relaxed max-w-xs mx-auto">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
+                ))}
+              </div>
+            </div>
 
-                  <div className="md:pt-5 md:text-center">
-                    <h3 className="text-base sm:text-lg font-bold text-white">
-                      {item.title}
-                    </h3>
+            {/* Mobile Timeline */}
+            <div className="md:hidden relative">
+              {/* Vertical line */}
+              <div className="absolute left-5 top-5 bottom-5 w-px bg-gray-700" />
 
-                    <p className="mt-2 text-gray-300 text-sm leading-relaxed max-w-xs md:mx-auto">
-                      {item.desc}
-                    </p>
+              <div className="relative space-y-8">
+                {timeline.map((item, index) => (
+                  <div
+                    key={item.number}
+                    data-reveal
+                    data-reveal-delay={(index % 4) + 1}
+                    className="relative flex items-start gap-5"
+                  >
+                    {/* Icon */}
+                    <div className="relative z-20 shrink-0 w-10 h-10 rounded-full bg-[#0b0b0b] border border-red-500/70 flex items-center justify-center text-red-400">
+                      <span className="text-sm">{item.icon}</span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="pt-1 pr-2">
+                      <h3 className="text-base sm:text-lg font-bold text-white">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-gray-300 text-sm leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
+          {/* Bottom Message */}
           <div data-reveal className="mt-10 text-center">
             <p className="text-sm sm:text-base text-gray-300">
               You don&apos;t need everyone.
@@ -362,7 +402,10 @@ export default function HuntOpportunities() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#181818]" id="how-it-works">
+      <section
+        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#181818]"
+        id="how-it-works"
+      >
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#202020] pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
@@ -409,7 +452,10 @@ export default function HuntOpportunities() {
       </section>
 
       {/* OPPORTUNITIES */}
-      <section className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#202020]" id="hunt-opportunities">
+      <section
+        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#202020]"
+        id="hunt-opportunities"
+      >
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#242424] pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
@@ -574,9 +620,9 @@ export default function HuntOpportunities() {
               </span>
 
               <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                Stop Waiting.
+                Dont't Settle
                 <br />
-                <span className="text-red-500">Start Hunting.</span>
+                <span className="text-red-500">Hunt Better</span>
               </h2>
 
               <p className="mt-5 max-w-xl mx-auto lg:mx-0 text-gray-300 text-sm sm:text-base leading-relaxed">
