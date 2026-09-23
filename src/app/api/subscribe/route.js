@@ -90,7 +90,7 @@ export async function POST(req) {
     const info = await transporter.sendMail({
       from: `"HuntInTown" <${emailUser}>`,
       to: normalizedEmail,
-      subject: "You’re officially on the HuntInTown list 🎉",
+      subject: "You’re officially on the HuntInTown list",
 
       text: `Welcome to HuntInTown!
 
@@ -156,9 +156,7 @@ Explore HuntInTown: ${siteUrl}
 
                     <tr>
                       <td style="padding:40px 32px 20px;">
-                        <div style="font-size:36px;line-height:1;margin-bottom:18px;">
-                          🎉
-                        </div>
+                       
 
                         <h1 style="margin:0;font-size:30px;line-height:1.15;color:#18181b;">
                           You’re officially in.
@@ -316,11 +314,8 @@ Explore HuntInTown: ${siteUrl}
       `,
     });
 
- 
-
     const emailAccepted =
-      Array.isArray(info.accepted) &&
-      info.accepted.includes(normalizedEmail);
+      Array.isArray(info.accepted) && info.accepted.includes(normalizedEmail);
 
     return Response.json({
       success: true,
