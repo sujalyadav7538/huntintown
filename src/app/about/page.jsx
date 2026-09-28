@@ -9,6 +9,7 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
+import SocialMediaFooter from "@/components/Footer";
 
 export const metadata = {
   title: "About Us",
@@ -344,6 +345,9 @@ export default function AboutPage() {
           <EarlyAccessForm />
         </div>
       </section>
+
+      {/* Footer */}
+      <SocialMediaFooter/>
 
     </main>
   );

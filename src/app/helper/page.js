@@ -1,9 +1,9 @@
-﻿/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   FiArrowRight,
   FiSearch,
@@ -24,9 +24,9 @@ import {
   FiStar,
 } from "react-icons/fi";
 
-import bg1 from "../../public/bg3.jpeg";
-import EarlyAccessForm from "../components/EarlyAccessForm";
-import SocialMediaFooter from "../components/Footer";
+import bg1 from "../../../public/bg3.jpeg";
+import EarlyAccessForm from "../../components/EarlyAccessForm";
+import SocialMediaFooter from "@/components/Footer";
 
 const hunterTypes = [
   {
@@ -176,6 +176,15 @@ const howItWorks = [
 ];
 
 export default function HuntOpportunities() {
+  const ctaRef = useRef(null);
+
+  const scrollToCTA = () => {
+    ctaRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
 
@@ -217,7 +226,7 @@ export default function HuntOpportunities() {
 
         <div className="relative z-10 max-w-5xl mx-auto w-full text-center">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl font-extrabold leading-[1.05] tracking-tight animate-slide-in-left">
-            Be Picky
+            Go Wild
           </h1>
 
           <h1 className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
@@ -227,65 +236,20 @@ export default function HuntOpportunities() {
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
-            Find the right person for what you need, or become the person
-            someone is looking for.
+            Someone, somewhere, is already looking for what you do.
           </p>
 
           <p className="mt-8 text-gray-400 text-[10px] lg:text-[14px] max-w-xl mx-auto px-2 sm:px-0 font-semibold uppercase tracking-widest text-red-400 bg-red-500/10 border border-red-500/20 py-1.5 rounded-full animate-slide-in-left-delay">
             Be Among the First. Be a HuntInTown Founding Member
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 text-left sm:grid-cols-2 sm:gap-4">
-            <Link
-              href="/hunter"
-              className="group rounded-2xl border border-white/15 bg-black/40 p-5 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-red-500/60 hover:bg-red-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-                    I need something
-                  </span>
-                  <h2 className="mt-2 text-lg font-bold text-white sm:text-xl">
-                    Find help
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-gray-300">
-                    Post a requirement and connect with the right professional
-                    or service provider.
-                  </p>
-                </div>
-                <FiArrowRight className="mt-1 shrink-0 text-red-400 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-
-            <Link
-              href="/helper"
-              className="group rounded-2xl border border-red-500/40 bg-red-600/15 p-5 text-left backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-red-400 hover:bg-red-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
-                    I can help with something
-                  </span>
-                  <h2 className="mt-2 text-lg font-bold text-white sm:text-xl">
-                    Find opportunities
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-gray-200">
-                    Discover people actively looking for your skills, services,
-                    or products.
-                  </p>
-                </div>
-                <FiArrowRight className="mt-1 shrink-0 text-red-300 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          </div>
-
-          <Link
-            href="#how-it-works"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gray-300 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          <button
+            onClick={scrollToCTA}
+            className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            Learn how HuntInTown works
+            Start Hunting
             <FiArrowRight />
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -642,6 +606,7 @@ export default function HuntOpportunities() {
 
       {/* CTA */}
       <section
+        ref={ctaRef}
         className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-8 sm:py-10 lg:py-10 bg-[#181818]"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.06),transparent_55%)] pointer-events-none" />
@@ -688,6 +653,7 @@ export default function HuntOpportunities() {
         </div>
       </section>
 
+      {/* FOOTER */}
       <SocialMediaFooter />
     </main>
   );

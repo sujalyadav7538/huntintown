@@ -34,14 +34,26 @@ const Navbar = () => {
             Home
           </Link>
 
-          <Link
+          {/* <Link
             href="/#how-it-works"
             className="hover:text-red-500 transition-colors"
           >
             How it works
+          </Link> */}
+
+          <Link
+            href="/hunter"
+            className="hover:text-red-500 transition-colors"
+          >
+            Post a Requirement
           </Link>
 
-    
+          <Link
+            href="/helper"
+            className="hover:text-red-500 transition-colors"
+          >
+            Find Opportunities
+          </Link>
 
           <Link
             href="/about"
@@ -77,11 +89,19 @@ const Navbar = () => {
 
          
             <Link
-              href="/#hunt-opportunities"
+              href="/hunter"
               onClick={closeMenu}
               className="hover:text-red-500 transition-colors"
             >
-              Hunt Opportunities
+              Post a Requirement
+            </Link>
+
+            <Link
+              href="/helper"
+              onClick={closeMenu}
+              className="hover:text-red-500 transition-colors"
+            >
+              Find Opportunities
             </Link>
 
             <Link

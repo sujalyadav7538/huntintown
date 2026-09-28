@@ -1,6 +1,6 @@
 export default function sitemap() {
   const siteUrl = "https://huntintown.com";
-  const routes = ["", "/about", "/explore", "/post"];
+  const routes = ["", "/about", "/hunter", "/helper"];
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

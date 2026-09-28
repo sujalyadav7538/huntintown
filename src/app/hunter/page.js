@@ -1,9 +1,9 @@
-﻿/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   FiArrowRight,
   FiSearch,
@@ -24,48 +24,48 @@ import {
   FiStar,
 } from "react-icons/fi";
 
-import bg1 from "../../public/bg3.jpeg";
-import EarlyAccessForm from "../components/EarlyAccessForm";
-import SocialMediaFooter from "../components/Footer";
+import bg1 from "../../../public/bg3.jpeg";
+import EarlyAccessForm from "../../components/EarlyAccessForm";
+import SocialMediaFooter from "@/components/Footer";
 
 const hunterTypes = [
   {
-    title: "Freelancers",
-    icon: <FiCode />,
-    desc: "Find projects and people looking for your skills.",
+    title: "Home & Repair",
+    icon: <FiTool />,
+    desc: "Find trusted people for repairs, maintenance, installation and home services.",
   },
   {
     title: "Professionals",
     icon: <FiBriefcase />,
-    desc: "Discover requirements where your expertise can make a difference.",
+    desc: "Find the right experts for legal, financial, business and professional needs.",
   },
   {
-    title: "Local Businesses",
-    icon: <FiMapPin />,
-    desc: "Find nearby customers actively looking for what you offer.",
+    title: "Freelancers",
+    icon: <FiCode />,
+    desc: "Find developers, marketers, designers and other skilled freelancers.",
   },
   {
-    title: "Service Experts",
-    icon: <FiTool />,
-    desc: "Connect with people who already need your service.",
+    title: "Creative Services",
+    icon: <FiPenTool />,
+    desc: "Find photographers, editors, writers, designers and creative specialists.",
   },
   {
-    title: "Skilled Individuals",
-    icon: <FiStar />,
-    desc: "Turn your skills and experience into real opportunities.",
+    title: "Education & Skills",
+    icon: <FiBookOpen />,
+    desc: "Find tutors, trainers, coaches and people who can help you learn.",
   },
   {
-    title: "Suppliers",
+    title: "Businesses & Suppliers",
     icon: <FiTruck />,
-    desc: "Discover businesses and people looking for products or supplies.",
+    desc: "Find local businesses, vendors, suppliers and products that match your need.",
   },
 ];
 
 const opportunities = [
   {
-    title: "Home Services",
+    title: "Home & Repair Services",
     icon: <FiTool />,
-    desc: "Plumbing, electrical, repairs, cleaning, installation and more.",
+    desc: "Plumbing, electrical work, repairs, cleaning, installation and more.",
   },
   {
     title: "Professional Services",
@@ -73,57 +73,57 @@ const opportunities = [
     desc: "Consultants, accountants, legal professionals and business experts.",
   },
   {
-    title: "Creative Services",
+    title: "Creative & Design",
     icon: <FiPenTool />,
     desc: "Designers, photographers, editors, writers and creative specialists.",
   },
   {
-    title: "Education & Skills",
+    title: "Freelance & Digital",
+    icon: <FiCode />,
+    desc: "Developers, marketers and digital specialists for your next requirement.",
+  },
+  {
+    title: "Education & Tutoring",
     icon: <FiBookOpen />,
-    desc: "Tutors, trainers, coaches and people looking to learn.",
+    desc: "Tutors, trainers, coaches and experts who can help you learn.",
   },
   {
     title: "Business & Supply",
     icon: <FiTruck />,
-    desc: "Suppliers, vendors, products and business requirements.",
-  },
-  {
-    title: "Freelance & Digital",
-    icon: <FiCode />,
-    desc: "Developers, marketers, remote specialists and digital freelancers.",
+    desc: "Suppliers, vendors, local businesses and products for your requirements.",
   },
 ];
 
 const benefits = [
   {
-    title: "Real Requirements",
+    title: "Multiple Options",
     icon: <FiSearch />,
-    desc: "Discover people who are actively looking for something you can provide.",
+    desc: "Get responses from different people instead of settling for the first option you find.",
   },
   {
-    title: "Better-Fit Opportunities",
+    title: "Relevant Responses",
     icon: <FiTarget />,
-    desc: "Spend less time chasing random leads and more time on relevant opportunities.",
+    desc: "People respond specifically to your requirement, so you can compare what fits.",
   },
   {
-    title: "Show Your Fit",
+    title: "Explain What You Need",
     icon: <FiStar />,
-    desc: "Respond with your experience, skills, availability and approach.",
+    desc: "Share your requirement, preferences, budget, location and expectations clearly.",
   },
   {
     title: "Direct Connections",
     icon: <FiMessageCircle />,
-    desc: "Connect directly with the person behind the requirement.",
+    desc: "Connect directly with people who respond to your requirement.",
   },
   {
-    title: "Trusted Network",
+    title: "Trusted Profiles",
     icon: <FiShield />,
-    desc: "Build credibility through your profile, work and community interactions.",
+    desc: "Use profiles, ratings and information to understand who you are connecting with.",
   },
   {
     title: "Zero Commission",
     icon: <FiCheckCircle />,
-    desc: "Hunt for opportunities without paying a commission to HuntInTown.",
+    desc: "Post your requirement and connect without paying a commission to HuntInTown.",
   },
 ];
 
@@ -131,26 +131,26 @@ const timeline = [
   {
     number: "01",
     icon: <FiSearch />,
-    title: "A Need Appears",
-    desc: "Someone posts what they need — a service, skill, product, professional, or solution.",
+    title: "You Have a Need",
+    desc: "You need a service, skill, product, professional, or solution.",
   },
   {
     number: "02",
     icon: <FiTarget />,
-    title: "You Hunt",
-    desc: "You discover requirements that match what you offer, where you offer it.",
+    title: "You Post It",
+    desc: "Tell HuntInTown what you need, where you need it, and what matters to you.",
   },
   {
     number: "03",
     icon: <FiMessageCircle />,
-    title: "You Respond",
-    desc: "Show your experience, skills, availability, and why you're the right fit.",
+    title: "People Respond",
+    desc: "Relevant people, professionals and businesses can respond to your requirement.",
   },
   {
     number: "04",
     icon: <FiUserCheck />,
-    title: "You Connect",
-    desc: "Get chosen, start the conversation, and take the opportunity forward.",
+    title: "You Choose",
+    desc: "Review your options, connect directly, and choose the match that works for you.",
   },
 ];
 
@@ -158,24 +158,33 @@ const howItWorks = [
   {
     number: "01",
     icon: <FiSearch />,
-    title: "Find a Requirement",
-    desc: "Search through real requirements posted by people and businesses looking for something specific.",
+    title: "Post What You Need",
+    desc: "Describe your requirement clearly so the right people understand exactly what you are looking for.",
   },
   {
     number: "02",
     icon: <FiTarget />,
-    title: "Show Your Fit",
-    desc: "Tell them about your skills, experience, service, product, availability or approach.",
+    title: "Review Responses",
+    desc: "See people and businesses responding to your requirement with their experience, approach and offer.",
   },
   {
     number: "03",
     icon: <FiMessageCircle />,
     title: "Connect Directly",
-    desc: "If your response is selected, connect directly and discuss the opportunity.",
+    desc: "Choose the response that fits your need and connect directly to take it forward.",
   },
 ];
 
 export default function HuntOpportunities() {
+  const ctaRef = useRef(null);
+
+  const scrollToCTA = () => {
+    ctaRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
 
@@ -227,65 +236,20 @@ export default function HuntOpportunities() {
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
-            Find the right person for what you need, or become the person
-            someone is looking for.
+            Someone, somewhere, can help with what you need.
           </p>
 
           <p className="mt-8 text-gray-400 text-[10px] lg:text-[14px] max-w-xl mx-auto px-2 sm:px-0 font-semibold uppercase tracking-widest text-red-400 bg-red-500/10 border border-red-500/20 py-1.5 rounded-full animate-slide-in-left-delay">
             Be Among the First. Be a HuntInTown Founding Member
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 text-left sm:grid-cols-2 sm:gap-4">
-            <Link
-              href="/hunter"
-              className="group rounded-2xl border border-white/15 bg-black/40 p-5 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-red-500/60 hover:bg-red-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-                    I need something
-                  </span>
-                  <h2 className="mt-2 text-lg font-bold text-white sm:text-xl">
-                    Find help
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-gray-300">
-                    Post a requirement and connect with the right professional
-                    or service provider.
-                  </p>
-                </div>
-                <FiArrowRight className="mt-1 shrink-0 text-red-400 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-
-            <Link
-              href="/helper"
-              className="group rounded-2xl border border-red-500/40 bg-red-600/15 p-5 text-left backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-red-400 hover:bg-red-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
-                    I can help with something
-                  </span>
-                  <h2 className="mt-2 text-lg font-bold text-white sm:text-xl">
-                    Find opportunities
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-gray-200">
-                    Discover people actively looking for your skills, services,
-                    or products.
-                  </p>
-                </div>
-                <FiArrowRight className="mt-1 shrink-0 text-red-300 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          </div>
-
-          <Link
-            href="#how-it-works"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gray-300 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          <button
+            onClick={scrollToCTA}
+            className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            Learn how HuntInTown works
+            Start Hunting
             <FiArrowRight />
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -294,30 +258,28 @@ export default function HuntOpportunities() {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#101010] pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
-          {/* Heading */}
           <div data-reveal className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400">
-              A Different Way to Find Opportunities
+              A Different Way to Find What You Need
             </span>
 
             <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-              Don&apos;t Wait to Be Found.
+              Stop Searching Everywhere.
               <br />
-              <span className="text-red-500">Hunt for Hunger</span>
+              <span className="text-red-500">Hunt for the Right Match</span>
             </h2>
 
             <p className="mt-4 text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              The traditional way starts with you trying to get noticed.
-              HuntInTown starts with someone already looking for what you do.
+              The traditional way makes you search through endless options.
+              HuntInTown starts with your requirement and helps you discover
+              relevant matches.
             </p>
           </div>
 
-          {/* Timeline */}
           <div className="relative mt-12 sm:mt-14">
             {/* Desktop Timeline */}
             <div className="hidden md:block">
               <div className="relative grid grid-cols-4">
-                {/* Horizontal line */}
                 <div className="absolute top-5 left-[12.5%] right-[12.5%] h-px bg-gray-700" />
 
                 {timeline.map((item, index) => (
@@ -327,12 +289,10 @@ export default function HuntOpportunities() {
                     data-reveal-delay={(index % 4) + 1}
                     className="relative text-center"
                   >
-                    {/* Icon */}
                     <div className="relative z-20 mx-auto w-10 h-10 rounded-full bg-[#0b0b0b] border border-red-500/70 flex items-center justify-center text-red-400">
                       <span className="text-sm">{item.icon}</span>
                     </div>
 
-                    {/* Content */}
                     <div className="mt-5 px-4">
                       <h3 className="text-base sm:text-lg font-bold text-white">
                         {item.title}
@@ -349,7 +309,6 @@ export default function HuntOpportunities() {
 
             {/* Mobile Timeline */}
             <div className="md:hidden relative">
-              {/* Vertical line */}
               <div className="absolute left-5 top-5 bottom-5 w-px bg-gray-700" />
 
               <div className="relative space-y-8">
@@ -360,12 +319,10 @@ export default function HuntOpportunities() {
                     data-reveal-delay={(index % 4) + 1}
                     className="relative flex items-start gap-5"
                   >
-                    {/* Icon */}
                     <div className="relative z-20 shrink-0 w-10 h-10 rounded-full bg-[#0b0b0b] border border-red-500/70 flex items-center justify-center text-red-400">
                       <span className="text-sm">{item.icon}</span>
                     </div>
 
-                    {/* Content */}
                     <div className="pt-1 pr-2">
                       <h3 className="text-base sm:text-lg font-bold text-white">
                         {item.title}
@@ -381,37 +338,36 @@ export default function HuntOpportunities() {
             </div>
           </div>
 
-          {/* Bottom Message */}
           <div data-reveal className="mt-10 text-center">
             <p className="text-sm sm:text-base text-gray-300">
-              You don&apos;t need everyone.
+              You don&apos;t need endless options.
               <span className="text-white font-semibold">
                 {" "}
-                You need the people who need what you do.
+                You need the right options for your requirement.
               </span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHO CAN HUNT */}
+      {/* WHAT CAN YOU HUNT */}
       <section className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#101010]">
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#181818] pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <div data-reveal className="max-w-2xl mb-10">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400">
-              Who Can Hunt?
+              What Can You Hunt?
             </span>
 
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">
-              Everyone Can Hunt.
+              Everyone Has Something They Need.
             </h2>
 
             <p className="mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
-              What you do is what you hunt with. Whether you are an individual,
-              professional, freelancer, or business, there are people looking
-              for what you offer.
+              Whatever you need, you can hunt for it. Whether it is a service,
+              professional, product, skill, or local business, put your
+              requirement out there and discover relevant options.
             </p>
           </div>
 
@@ -440,7 +396,7 @@ export default function HuntOpportunities() {
 
       {/* HOW IT WORKS */}
       <section
-        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#181818]"
+        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#181818] scroll-mt-24"
         id="how-it-works"
       >
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#202020] pointer-events-none" />
@@ -452,12 +408,12 @@ export default function HuntOpportunities() {
             </span>
 
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">
-              Find. Respond. Connect.
+              Hunt <span className="text-red-500"> The</span> Hunter's
             </h2>
 
             <p className="mt-3 text-gray-300 text-sm sm:text-base">
-              No complicated process. Find a relevant requirement and make your
-              move.
+              No complicated process. Put your requirement out there and
+              discover people who can help.
             </p>
           </div>
 
@@ -488,9 +444,9 @@ export default function HuntOpportunities() {
         </div>
       </section>
 
-      {/* OPPORTUNITIES */}
+      {/* CATEGORIES */}
       <section
-        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#202020]"
+        className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 bg-[#202020] scroll-mt-24"
         id="hunt-opportunities"
       >
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#242424] pointer-events-none" />
@@ -502,12 +458,13 @@ export default function HuntOpportunities() {
             </span>
 
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">
-              Go Where the Demand Is.
+              Hunt For What You Need.
             </h2>
 
             <p className="mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
-              Opportunities aren&apos;t limited to one kind of work. Hunt for
-              requirements that match what you know, make, sell or do.
+              Your requirements aren&apos;t limited to one category. Hunt for
+              services, professionals, products, skills and businesses that
+              match what you need.
             </p>
           </div>
 
@@ -545,9 +502,11 @@ export default function HuntOpportunities() {
             </span>
 
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">
-              Stop Chasing Attention.
+              Stop Searching Everywhere.
               <br />
-              <span className="text-red-500">Find Actual Demand.</span>
+              <span className="text-red-500">
+                Put Your Requirement Out There.
+              </span>
             </h2>
           </div>
 
@@ -581,14 +540,14 @@ export default function HuntOpportunities() {
           className="relative z-10 max-w-4xl mx-auto text-center"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-            The Shift
+            The Hunt
           </p>
 
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
             Stop asking
             <br />
             <span className="text-gray-400">
-              &quot;Where are the customers?&quot;
+              &quot;Where do I find the right person?&quot;
             </span>
           </h2>
 
@@ -601,7 +560,9 @@ export default function HuntOpportunities() {
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
             Start asking
             <br />
-            <span className="text-red-500">&quot;Where am I needed?&quot;</span>
+            <span className="text-red-500">
+              &quot;Let's begin the hunt&quot;
+            </span>
           </h3>
         </div>
       </section>
@@ -631,17 +592,18 @@ export default function HuntOpportunities() {
           </div>
 
           <h2 className="mt-2 text-2xl sm:text-3xl font-bold">
-            100+ early hunters are getting ready to hunt.
+            100+ early hunters are getting ready to hunt for what they need.
           </h2>
 
           <p className="mt-3 text-gray-300 text-sm sm:text-base">
-            Your next opportunity could already be waiting for you.
+            Your next match could already be out there.
           </p>
         </div>
       </section>
 
       {/* CTA */}
       <section
+        ref={ctaRef}
         className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-8 sm:py-10 lg:py-10 bg-[#181818]"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.06),transparent_55%)] pointer-events-none" />
@@ -656,14 +618,14 @@ export default function HuntOpportunities() {
               </span>
 
               <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                Dont't Settle
+                Don&apos;t Settle
                 <br />
                 <span className="text-red-500">Hunt Better</span>
               </h2>
 
               <p className="mt-5 max-w-xl mx-auto lg:mx-0 text-gray-300 text-sm sm:text-base leading-relaxed">
-                Find people looking for what you do. Respond when the
-                opportunity fits. Connect directly.
+                Post what you need. Discover relevant responses. Connect
+                directly.
               </p>
 
               <div className="mt-5 flex items-center justify-center lg:justify-start gap-2 text-xs text-gray-500">
@@ -682,12 +644,13 @@ export default function HuntOpportunities() {
               data-reveal-delay="2"
               className="w-full max-w-md mx-auto lg:ml-auto"
             >
-              <EarlyAccessForm mode="opportunity" />
+              <EarlyAccessForm mode="requirement" />
             </div>
           </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <SocialMediaFooter />
     </main>
   );
