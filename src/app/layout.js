@@ -184,8 +184,25 @@ export default function RootLayout({ children }) {
         "@id": `${siteUrl}/#website`,
         name: "HuntInTown",
         alternateName: "Hunt In Town",
+        description:
+          "A platform for finding local services and opportunities by connecting people who need something with people who can help.",
         url: siteUrl,
         publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        inLanguage: "en-IN",
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/#webpage`,
+        name: "HuntInTown (Hunt In Town) | Find Local Services, Work & Opportunities",
+        description:
+          "Choose whether you need help or can help, then connect through HuntInTown with local services, professionals, businesses, freelancers, and opportunities.",
+        url: siteUrl,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
           "@id": `${siteUrl}/#organization`,
         },
         inLanguage: "en-IN",

@@ -1,0 +1,29 @@
+# HuntInTown
+
+> HuntInTown, also known as Hunt In Town, is a platform for connecting people who need something with people and businesses that can help.
+
+## About
+
+HuntInTown helps visitors either post a requirement or discover relevant opportunities. It supports local services, professionals, freelancers, businesses, suppliers, skills, products, and work opportunities.
+
+The two primary user journeys are:
+
+- People looking for help can post a requirement and connect with relevant local professionals, service providers, freelancers, businesses, or suppliers.
+- People offering help can discover requirements and opportunities that match their skills, services, products, or experience.
+
+## Primary Pages
+
+- [HuntInTown homepage](https://huntintown.com/): Choose whether you need help or can help, then learn how the platform works.
+- [Post a requirement](https://huntintown.com/hunter): Find local services, professionals, businesses, freelancers, suppliers, and skilled people for a requirement.
+- [Find opportunities](https://huntintown.com/helper): Discover local work, freelance projects, service leads, customer requirements, and business opportunities.
+- [About HuntInTown](https://huntintown.com/about): Learn about the platform and its purpose.
+
+## Brand Names
+
+- HuntInTown
+- Hunt In Town
+
+## Official Sources
+
+- [Sitemap](https://huntintown.com/sitemap.xml)
+- [Robots policy](https://huntintown.com/robots.txt)
