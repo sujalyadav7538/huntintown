@@ -21,6 +21,7 @@ function hashSHA256(value) {
 }
 
 async function sendMetaEvent({ email, eventId }) {
+  console.log(eventId);
   const pixelId = process.env.META_PIXEL_ID;
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
 
@@ -28,6 +29,7 @@ async function sendMetaEvent({ email, eventId }) {
     console.error("Missing Meta CAPI environment variables");
     return;
   }
+  
 
   const payload = {
     data: [
@@ -36,8 +38,7 @@ async function sendMetaEvent({ email, eventId }) {
         event_time: Math.floor(Date.now() / 1000),
         event_id: eventId,
         action_source: "website",
-        event_source_url: "https://huntintown.com",
-
+        event_source_url: "http://localhost:3000",
         user_data: {
           em: [hashSHA256(email)],
         },
@@ -46,7 +47,7 @@ async function sendMetaEvent({ email, eventId }) {
   };
 
   const response = await fetch(
-    `https://graph.facebook.com/YOUR_API_VERSION/${pixelId}/events?access_token=${accessToken}`,
+    `https://graph.facebook.com/v26.0/${pixelId}/events?access_token=${accessToken}`,
     {
       method: "POST",
       headers: {
@@ -65,7 +66,7 @@ async function sendMetaEvent({ email, eventId }) {
   }
 }
 export async function POST(req) {
-  const { email, intent, painPoints, occupation } = await req.json();
+  const { email, intent, painPoints, occupation, eventId } = await req.json();
   const normalizedEmail = email?.trim().toLowerCase();
 
   if (!normalizedEmail) {
@@ -98,7 +99,7 @@ export async function POST(req) {
     );
   }
 
-  const eventId = `lead_${crypto.randomUUID()}`;
+ 
 
   await sendMetaEvent({
     email: normalizedEmail,
