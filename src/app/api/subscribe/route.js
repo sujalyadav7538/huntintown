@@ -38,7 +38,7 @@ async function sendMetaEvent({ email, eventId }) {
         event_time: Math.floor(Date.now() / 1000),
         event_id: eventId,
         action_source: "website",
-        event_source_url: "http://localhost:3000",
+        event_source_url: "https://huntintown.com",
         user_data: {
           em: [hashSHA256(email)],
         },
