@@ -30,6 +30,8 @@ export default function EarlyAccessForm({
     setLoading(true);
     setServerError("");
 
+    const eventId = `lead_${crypto.randomUUID()}`;
+
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -42,6 +44,7 @@ export default function EarlyAccessForm({
           intent: service ? [service] : [],
           painPoints: [],
           occupation: "",
+          eventId,
         }),
       });
 
@@ -52,9 +55,16 @@ export default function EarlyAccessForm({
       }
 
       if (window.fbq) {
-        window.fbq("track", "Lead", {
-          content_name: "HuntInTown Early Access",
-        });
+        window.fbq(
+          "track",
+          "Lead",
+          {
+            content_name: "HuntInTown Early Access",
+          },
+          {
+            eventID: eventId,
+          },
+        );
       }
 
       setSubmitted(true);

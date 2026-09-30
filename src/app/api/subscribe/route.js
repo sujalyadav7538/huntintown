@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { supabase } from "@/lib/supabaseClient";
 import nodemailer from "nodemailer";
 
@@ -15,6 +16,54 @@ function escapeHtml(value = "") {
   );
 }
 
+function hashSHA256(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+async function sendMetaEvent({ email, eventId }) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
+
+  if (!pixelId || !accessToken) {
+    console.error("Missing Meta CAPI environment variables");
+    return;
+  }
+
+  const payload = {
+    data: [
+      {
+        event_name: "Lead",
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: eventId,
+        action_source: "website",
+        event_source_url: "https://huntintown.com",
+
+        user_data: {
+          em: [hashSHA256(email)],
+        },
+      },
+    ],
+  };
+
+  const response = await fetch(
+    `https://graph.facebook.com/YOUR_API_VERSION/${pixelId}/events?access_token=${accessToken}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    },
+  );
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    console.error("Meta CAPI error:", result);
+  } else {
+    console.log("Meta CAPI success:", result);
+  }
+}
 export async function POST(req) {
   const { email, intent, painPoints, occupation } = await req.json();
   const normalizedEmail = email?.trim().toLowerCase();
@@ -48,6 +97,14 @@ export async function POST(req) {
       { status: 500 },
     );
   }
+
+  const eventId = `lead_${crypto.randomUUID()}`;
+
+  await sendMetaEvent({
+    email: normalizedEmail,
+    eventId,
+    // eventSourceUrl is not needed in sendMetaEvent anymore
+  });
 
   const emailUser = process.env.EMAIL_USER;
   const emailPassword = process.env.EMAIL_PASSWORD;
