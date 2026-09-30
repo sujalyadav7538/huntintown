@@ -51,6 +51,12 @@ export default function EarlyAccessForm({
         throw new Error(data.error || "Something went wrong");
       }
 
+      if (window.fbq) {
+        window.fbq("track", "Lead", {
+          content_name: "HuntInTown Early Access",
+        });
+      }
+
       setSubmitted(true);
     } catch (error) {
       setServerError(
@@ -70,13 +76,11 @@ export default function EarlyAccessForm({
           <FiCheck className="h-5 w-5 text-green-400" />
         </div>
 
-        <h3 className="mt-4 text-xl font-bold text-white">
-          You&apos;re in!
-        </h3>
+        <h3 className="mt-4 text-xl font-bold text-white">You&apos;re in!</h3>
 
         <p className="mt-2 text-sm leading-relaxed text-gray-400">
-          We&apos;ll let you know when relevant opportunities start appearing
-          on HuntIn<span className="text-red-500">Town</span>.
+          We&apos;ll let you know when relevant opportunities start appearing on
+          HuntIn<span className="text-red-500">Town</span>.
         </p>
       </div>
     );
@@ -151,9 +155,7 @@ export default function EarlyAccessForm({
           </div>
         </div>
 
-        {serverError && (
-          <p className="text-xs text-red-400">{serverError}</p>
-        )}
+        {serverError && <p className="text-xs text-red-400">{serverError}</p>}
 
         <button
           type="submit"

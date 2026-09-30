@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Noto_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -34,14 +35,11 @@ export const metadata = {
     "HuntInTown helps you find what you need and discover who needs what you offer. Post requirements, find local services, jobs, freelance projects and business opportunities, and connect directly.",
 
   keywords: [
-    // Brand
     "HuntInTown",
     "Hunt In Town",
     "HuntInTown app",
     "HuntInTown platform",
     "Hunt In Town platform",
-
-    // Core platform intent
     "local requirement platform",
     "post a requirement",
     "find what you need",
@@ -52,8 +50,6 @@ export const metadata = {
     "local opportunity platform",
     "connect with local people",
     "connect with local businesses",
-
-    // Hunter intent
     "find services near me",
     "find professionals near me",
     "find businesses near me",
@@ -64,8 +60,6 @@ export const metadata = {
     "local suppliers",
     "find local suppliers",
     "post service requirements",
-
-    // Helper / opportunity intent
     "find local work",
     "find work near me",
     "local jobs",
@@ -84,8 +78,6 @@ export const metadata = {
     "contract work",
     "skilled work opportunities",
     "work opportunities near me",
-
-    // Local search intent
     "services near me",
     "jobs near me",
     "freelance jobs near me",
@@ -178,7 +170,6 @@ export default function RootLayout({ children }) {
           "https://facebook.com/huntintown",
         ],
       },
-
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
@@ -216,6 +207,35 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} ${notoSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* Meta Pixel */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;
+              n.push=n;
+              n.loaded=!0;
+              n.version='2.0';
+              n.queue=[];
+              t=b.createElement(e);
+              t.async=!0;
+              t.src=v;
+              s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}
+              (window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+
+              fbq('init', '2735923370143999');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -225,9 +245,7 @@ export default function RootLayout({ children }) {
 
         <Navbar />
 
-        <section className="bg-[#0a0a0a] mt-16">
-          {children}
-        </section>
+        <section className="bg-[#0a0a0a] mt-16">{children}</section>
       </body>
     </html>
   );
